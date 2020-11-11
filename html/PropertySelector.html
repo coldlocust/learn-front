@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+ * @Author: mazhao
+ * @Date: 2020-09-11 09:57:48
+ * @LastEditTime: 2020-09-11 17:42:56
+ * @LastEditors: Please set LastEditors
+ * @Description: CSS属性选择器
+ * @FilePath: \project_html&CSS\CSS\PropertySelector.html
+-->
+<html>
+
+<head>
+
+    <style type="text/css">
+        /*1-为拥有指定属性的HTML元素设置样式,不仅限于class 和 id 属性 */
+        
+        [title=demo_0] {
+            color: gray;
+        }
+        /*2-为包含指定值的 title 属性所有元素设置样式，适用于由空格分隔的属性值*/
+        
+        [title~=hello] {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>1-为拥有指定属性的HTML元素设置样式,不仅限于class 和 id 属性</h1>
+    <h2 title="demo_0">为指定属性的HTML元素设置属性</h2>
+    <p title="demo_0">设置样式</p>
+    <hr/>
+
+    <h1>2-包含指定值的 title 属性所有元素设置样式，适用于由空格分隔的属性值</h1>
+    <h1>应用样式</h1>
+    <h2 title="hello world">hello world</h2>
+    <p title="student hello">student hello</p>
+    <h1>无法应用样式</h1>
+    <h2 title="world">world</h2>
+    <p titile="student">student</p>
+</body>
+
+</html>

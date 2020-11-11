@@ -1,0 +1,88 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-21 14:15:48
+ * @LastEditTime: 2020-09-21 15:02:27
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \html&CSS&JavaScript\html\margin的各种坑.html
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>margin的各种坑</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        div{
+            height: 100px;
+            width: 100px;
+            /* border: 1px solid  #ff8500; */
+            background-color:greenyellow;
+        }
+        .div_center{
+            /* 块级元素水平居中：设置div块的宽度，将左右边距设置为auto */
+            margin: 0 auto;
+            text-align: center;
+            font-size: 12px;
+            background-color: skyblue;
+        }
+        .div_center2{
+             /* 块级元素水平居中：设置div块的宽度，将左右边距设置为auto */
+             margin: 0 auto;
+            font-size: 12px;
+            background-color: skyblue;
+        }
+        .span_center{
+            text-align: center;
+        }
+        .div_1{
+            margin-bottom: 20px;
+        }
+        .div_2{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .div_father1{
+            width: 98px;
+            height: 98px;
+            /* 解决父box和子box垂直方向上的margin合并 */
+            /* 1.为父元素定义上边框 (transparent-边框透明)*/
+            /* border: 1px solid blue; */ 
+            /* border: 1px solid transparent; */
+
+            /* 2.为父元素定义上内边距 */
+            /* border: 1px solid transparent; */
+
+            /* 3.为父元素添加overflow：hidden */
+            overflow: hidden;
+        }
+        .div_son1{
+            width: 50px;
+            height: 50px;
+            margin-top: 20px;
+            background-color: #ff8500;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- div块水平居中 -->
+    <div class="div_center">如何使div块内的元素水平居中，设置父元素text-alingn:center</div>
+    <div class="div_center2"><span class="span_center">如何使div块内的元素水平居中，设置子元素text-alingn:center</span></div>
+    <div class="div_1"></div>
+    <div class="div_2"></div>
+
+    <div class="div_father1">
+        <div class="div_son1">
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-18 18:13:14
+ * @LastEditTime: 2020-09-18 18:41:56
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \project_html&CSS\html\三列自适应布局-圣杯布局.html
+-->
+
+<!-- 圣杯布局：随着页面宽度变化，三栏布局中间的盒子优先自适应渲染，两边盒子宽度固定不变 -->
+<!-- 具体要求：1-两边固定，中间自适应    2-优先加载middle内容    3-三列等高布局 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三列自适应布局-圣杯布局</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+      .wrap {
+        min-width: 600px;
+      }
+
+      #header,
+      #footer {
+        height: 50px;
+        width: 100%;
+        border: 1px solid;
+        background-color: grey;
+      }
+      #content {
+        overflow: hidden;
+        padding: 0px 200px;
+      }
+      #left,
+      #right {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+      #middle {
+        background-color: green;
+        width: 100%;
+      }
+      #middle,
+      #left,
+      #right {
+        float: left;
+        padding-bottom: 10000px;
+        margin-bottom: -10000px;
+      }
+      #left {
+        margin-left: -100%;
+        position: relative;
+        left: -200px;
+      }
+      #right {
+        margin-left: -200px;
+        position: relative;
+        left: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div id="header">header</div>
+      <div id="content">
+        <div id="middle">
+          <p>middle</p>
+          <p>middle</p>
+          <p>middle</p>
+        </div>
+        <div id="left">left</div>
+        <div id="right">right</div>
+      </div>
+      <div id="footer">footer</div>
+    </div>
+  </body>
+</html>

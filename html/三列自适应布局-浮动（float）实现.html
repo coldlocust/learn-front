@@ -1,0 +1,46 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-18 15:37:19
+ * @LastEditTime: 2020-09-18 17:18:51
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \project_html&CSS\html\三列自适应布局-浮动（float）实现.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三列自适应布局-浮动（float）实现</title>
+    <style>
+     *{
+         margin: 0;
+         padding: 0;
+     }
+     body{
+         min-width: 600px;
+     }
+     #left,#right{
+         width: 200px;
+         height: 200px;
+         background-color:pink;
+     }
+     #middle{
+         height: 200px;
+         background-color:gray;
+         margin-right: 200px;
+     }
+     #left{
+         float: left;
+     }
+     #right{
+         float: right;
+     }
+    </style>
+  </head>
+  <body>
+    <div id="left">left</div>
+    <div id="middle">middle</div>
+    <div id="right">right</div>
+  </body>
+</html>

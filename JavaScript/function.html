@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+         /**
+         *  js不会对函数的参数传递进行限制，不要求参数的个数或类型必须匹配
+         *  js的参数内部是用一个数组传递的，函数接收到的始终是这个数组，
+         *  js关注这个用来传递参数的数组（并不是严格意义上的数组）(arguments),不关心数组中包含哪些参数
+         *  
+         */
+        function introduce(name,city){
+            console.log(arguments[0]+arguments[1])  //输出：manx
+            console.log(name+city)
+        }
+        introduce('ma','nx')
+
+        /**
+         *  js函数形参的声明并不是必须的，即使不声明函数形参， 依然可以通过arguments对象传递
+         *  arguemens对象的length属性可以获知有多少个参数传递给了函数
+         */
+         function howManyArgus(){
+             console.log('参数长度'+arguments.length)
+             for(let i=0;i<arguments.length;++i){
+                console.log(arguments[i])
+             }
+         }
+         howManyArgus(1)
+         howManyArgus(1,'a')
+         howManyArgus(1,'a','gsg')
+         howManyArgus([1],{1:1})
+
+         
+    </script>
+</body>
+</html>

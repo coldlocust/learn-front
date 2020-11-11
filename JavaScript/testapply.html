@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-10 14:01:54
+ * @LastEditTime: 2020-10-10 14:06:48
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \html&CSS&JavaScript\JavaScript\testapply.html
+-->
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>JavaScript 函数</h1>
+
+    <p>在此示例中，person 的 fulllName 方法在 person1 上<b>应用</b>：</p>
+
+    <p id="demo"></p>
+    <p id="demo1">测试</p>
+
+    <script>
+      var person = {
+        fullName: function (city, country) {
+          return (
+            this.firstName + " " + this.lastName + "," + city + "," + country
+          );
+        },
+        fullNmae2:function(city,country){
+            return(
+                this.firstName+" "+this.lastName+","+city+","+country
+            )
+        }
+      };
+      var person1 = {
+        firstName: "Bill",
+        lastName: "Gates",
+      };
+      var person2 = {
+        firstName: "X",
+        lastName: "gentleMan",
+      };
+
+      var x = person.fullName.apply(person2, ["Seatle", "USA"]);
+      var y = person.fullName2.apply(person1, ["WuHan", "China"]);
+      document.getElementById("demo").innerHTML = x;
+      document.getElementById("demo1").innnerHTML = y;
+    </script>
+  </body>
+</html>

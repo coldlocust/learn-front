@@ -1,0 +1,53 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-18 13:36:18
+ * @LastEditTime: 2020-09-18 14:00:59
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \project_html&CSS\html\两列自适应方案2（absolute，relative）.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过relative+absolute实现自适应布局</title>
+
+    <style>
+        .parent{
+             position: relative;
+        }
+    .left{
+        position: absolute;
+        left: 0px;
+        width: 100px;
+    }
+    .right{
+        position: absolute;
+        left: 120px;
+        right: 0px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="left">
+            <p>left</p>
+            <!-- <p id="width"></p> -->
+            <!-- <p id="height"></p> -->
+        </div>
+        <div class="right_fix">
+            <div class="right">
+                <p>right</p>
+                <p>right</p>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
+
+<script>
+    document.getElementById("width").innerHTML=window.innerWidth;
+    document.getElementById("height").innerHTML =window.innerHeight ;
+</script>

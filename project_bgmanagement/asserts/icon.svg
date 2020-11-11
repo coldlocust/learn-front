@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.1 (89650) - https://sketch.com -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Form/EnterBox/12/LeftIconTxt" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, -4.000000)" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Btn/icon/S" stroke="#666E80">
+            <g id="icon/S/Edit/Search_Line" transform="translate(0.000000, 4.000000)">
+                <path d="M13,7 C13,10.314 10.314,13 7,13 C3.686,13 1,10.314 1,7 C1,3.686 3.686,1 7,1 C10.314,1 13,3.686 13,7 Z M11.5,11.5 L15,15" id="Search_Line"></path>
+            </g>
+        </g>
+    </g>
+</svg>

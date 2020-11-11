@@ -1,0 +1,43 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-18 14:20:32
+ * @LastEditTime: 2020-09-18 14:28:50
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \project_html&CSS\html\两列自适应方案-flex布局.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .parent{
+            display: flex;
+        }
+        .left{
+            margin-right: 20px;
+        }
+        .right{
+            /* flex:1 的含义(.right宽度)=(分到.parent的宽度)-(.left的宽度) */
+            flex: 1;
+        }
+        .right p{
+            width: 200px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="left">
+        <p>left</p>
+      </div>
+
+      <div class="right">
+        <p>right</p>
+        <p>right</p>
+      </div>
+    </div>
+  </body>
+</html>

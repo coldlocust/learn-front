@@ -1,0 +1,91 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-21 10:27:45
+ * @LastEditTime: 2020-09-21 15:54:44
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \html&CSS&JavaScript\html\表格.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <style>
+        *{
+           margin: 0;
+           padding: 0;
+        }
+
+        /* border属性，对于div元素，会扩大div块的大小  对于table元素，border会占用table内部空间，外部大小不变 */
+        div,table{
+            width: 600px;
+            height: 400px;
+        }
+      
+        .testTable_1{
+            float:left;       
+            border: 1px solid pink;
+        }
+        .testTable_1 td{
+            border: 1px solid pink;
+            /* 相邻边框合并到一起 */
+            border-collapse: collapse;
+        }
+        .testTable_2{
+            /* float:left; */
+            margin-left: 10px;
+            /* margin-top: 10px; */
+            border: 1px solid skyblue;
+        }
+        .testTable_2 td{
+            border: 1px solid skyblue;
+            /* 相邻边框合并到一起 */
+            border-collapse: collapse;
+        }
+
+        /* 对于div块testdiv_1和testdiv_2，设置float:left的testdiv_1会优先显示 */
+        .testdiv_1{
+            float: left;
+            border: 1px solid green;
+        }
+        .testdiv_2{
+            /* float: left; */
+            border: 1px solid red;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <table class="testTable_1">
+        <tr>
+            <td>A1</td>
+            <td>A2</td>
+            <td>A3</td>
+        </tr>
+        <tr>
+            <td>B1</td>
+            <td>B2</td>
+            <td>B3</td>
+        </tr>
+    </table>
+    <table class="testTable_2">
+        <tr>
+            <td>A1</td>
+            <td>A2</td>
+            <td>A3</td>
+        </tr>
+        <tr>
+            <td>B1</td>
+            <td>B2</td>
+            <td>B3</td>
+        </tr>
+    </table>
+
+    <div class="testdiv_1"></div>
+    <div class="testdiv_2"></div>
+</body>
+</html>

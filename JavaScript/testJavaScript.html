@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<!--【JavaScript用法】->【JavaScript break和continue语句】-->
+
+<head>
+    <meta charset="utf-8">
+    <title>测试</title>
+</head>
+
+<body>
+    <p id="demo_1">你好</p>
+    <script>
+        document.getElementById("demo_1").innerHTML = "Hello"
+    </script>
+    <hr>
+
+
+    <p id="demo_2"></p>
+    <script>
+        a = 1
+        b = 3
+        c = a + b
+        document.getElementById("demo_2").innerHTML = a + b
+    </script>
+    <hr>
+
+
+    <!--点击按钮，改变标签样式，button,function-->
+    <p id="demo_3">Maroon</p>
+    <p id="demo_4">陈粒</p>
+    <button type="button" onclick="click1time_change()" ondblclick="click2times_change()">点击这里改变样式</button>
+    <script>
+        //点击一次改变内容
+        function click1time_change() {
+            document.getElementById("demo_3").innerHTML = "Daylight"
+            document.getElementById("demo_4").innerHTML = "小半"
+        }
+        //点击两次改变内容
+        function click2times_change() {
+            document.getElementById("demo_3").innerHTML = "Maroon"
+            document.getElementById("demo_4").innerHTML = "陈粒"
+        }
+    </script>
+    <hr>
+
+
+    <!--数据类型-->
+    <script>
+        var bnum = false
+        var inum = 1;
+        var fnum = 1.0;
+        var snum = "1.0"
+        var snum2 = '1.00'
+        var arr = [1, '1', "1.0", inum, fnum, snum, snum2]
+        var object = {
+            first: bnum,
+            second: inum,
+            third: snum2
+        }
+        document.write("JS数据类型" + "<br>")
+        document.write(inum + "<br>")
+        document.write(inum + fnum + "<br>")
+        document.write(snum + inum + "<br>")
+        document.write(snum2 + inum + "<br>")
+        document.write(inum + snum + "<br>")
+        document.write(inum + snum2 + "<br>")
+        document.write(inum + fnum + snum + "<br>")
+        document.write(inum + fnum + snum2 + "<br>")
+        document.write(arr + "<br>")
+        document.write(object.first + "<br>")
+        document.write(object.second + "<br>")
+        document.write(object.third + "<br>")
+
+        var testdigit = 99.223343;
+        document.write(testdigit.toPrecision() + "<br>")
+        document.write(testdigit.toPrecision(3) + "<br>")
+        document.write(testdigit.toExponential(2) + "<br>")
+        document.write(testdigit.toFixed(3) + "<br>")
+    </script>
+    <hr>
+
+
+    <!--对象类型-->
+    <p>对象方法是一种函数定义，存储为属性值</p>
+    <p id="demo_5"></p>
+    <p id="demo_6"></p>
+    <script>
+        var Person = {
+            name: "Demo",
+            age: 20,
+            company: "CESTC",
+            sayHello: function() {
+                return this.name + this.age + this.company;
+            }
+        }
+        document.getElementById("demo_5").innerHTML = Person.sayHello();
+        document.getElementById("demo_6").innerHTML = Person.sayHello;
+    </script>
+    <hr>
+
+
+    <!--字符串-->
+    <p id="demo_7"></p>
+    <p id="demo_8"></p>
+    <script>
+        var x = "中国是瓷器的故乡，因此 china 与\"China（中国）\"同名。";
+        document.getElementById("demo_7").innerHTML = x;
+        document.getElementById("demo_8").innerHTML = x.length
+    </script>
+
+
+
+</body>
+
+</html>

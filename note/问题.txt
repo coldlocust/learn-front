@@ -1,0 +1,38 @@
+问题1？
+    HTML中两个块级元素table1和table2，在前面的块级元素table1设定float：left,另外一个块级元素table2按照正常文档显示
+    table1按照预先设定浮动在视图左部，table2向上浮动，在table1右边并列显示
+    (为何table2向上浮动在table1的右边并排显示？)
+  答：浮动框在移动的过程中，碰到框没有内容或者框内的内容会自我调整位置以防止被覆盖。
+      参考https://www.cnblogs.com/hanguidong/p/8968573.html
+    此时给table2设置margin-left
+        当table2的margin-left小于等于table1的width时，table2位置不变
+        当table2的margin-left大于table1的width时，table2向右移动(table1.margin-left)-width长度
+        （为何会出现这种情况？）
+
+问题2？
+    给table设置border,是扩大box的大小，还是从box内部减去
+  
+问题3？
+    padding啥时候不会撑开box大小？
+  答：盒子本身没有指定width/height属性
+
+问题4？
+    如何消除box块之间的margin合并现象？
+  答：参考https://www.jb51.net/css/671240.html
+    1-给box/父级box设置border属性使之起效（默认border:none）
+    2-触动盒子的BFC模型（搞清楚BFC？）
+    3-给父级box设置行级/块级属性
+    4-overflow：hidden 父级box溢出部分隐藏
+
+问题5？
+    什么是标准流（普通流/文档流）？
+  答：标签按照规定好的默认方式排列（像文档中的文字一样从上到下排列）
+
+问题6？
+    为什么需要清除浮动？
+  答：在很多情况下，父盒子不方便给出高度，子盒子浮动又不占有位置，父盒子高度为0，会影响下面的标准流盒子
+      （浮动元素不再占有原文档流的位置，会对后面的文档流产生影响）
+
+
+
+

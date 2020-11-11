@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>测试</p>
+    <script>
+        /* 【1】隐式绑定
+        *   调用位置会根据obj上下文来引用函数
+        *   绑定上下文对象不明确，不推荐使用
+        */
+        function foo1() {
+            console.log(this.a2)
+        }
+        var object2 = {
+            a2: 42,
+            foo1
+        }
+        var object1 = {
+            a1: 24,
+            object2
+        }
+        /*  当函数引用有上下文对象时
+        *   隐式绑定规则会把函数调用中的this绑定到这个上下文对象
+        *   调用foo1函数时this被绑定到obj,因此this.a2等价于object1.object2.a2
+        *   对象属性引用链只有最顶层或者说最后一层会影响调用位置（例如最后一层由object2决定）
+        */
+        object1.object2.foo1()  //输出42
+
+        /* 【1】隐式绑定
+        *   隐式丢失
+        */
+        function foo2() {
+            console.log(this.b)
+        }
+        function foo3() {
+            console.log(this.bb)
+        }
+        var object3 = {
+            b: 2,
+            foo2,
+            foo3
+        }
+        //相当于函数foo2的一个别名
+        var bar2 = object3.foo2
+        //相当于函数foo3的一个别名
+        var bar3 = object3.foo3
+        //b是全局对象的属性
+        var b = "global var"
+        /*  bar2()是一个不带任何修饰的函数调用，应用了默认绑定
+        *   在非严格模式下，绑定在全局上下文对象
+        *   执行函数foo2(),执行代码console.log(this.b)，找到全局变量b
+        *   输出global var
+        */
+        bar2()  //输出global var
+        //b1是全局对象的属性
+        var b1 = "another global var"
+        /*   bar3()是一个不带任何修饰的函数调用，应用了默认绑定
+         *   在非严格模式下，绑定在全局上下文对象
+         *   执行函数foo3(),执行代码console.log(this.bb)，但是没有找到全局变量bb
+         *   输出undefined
+         */
+        bar3()  //输出undefined
+
+
+
+        /* 【2】显式绑定
+        *   在某个对象上强制调用函数（通过JavaScript提供的call(...)和apply(...)方法）
+        *   call(...)和apply(...)方法介绍
+        *       1.第一个参数是一个对象，这两个方法会把对象绑定到this
+        *         在调用函数时指定这个this绑定到第一个参数指定的对象上，所以称之为显示绑定
+        *       2.如果传入的参数是一个原始值（包括字符串类型，布尔类型或数字类型）
+        */
+        function foo4(){
+            console.log(this.c)
+        }
+        var object4={
+            c:2
+        }
+        var bar4=function(){
+            foo4.call(object4)
+        }
+        //函数bar4硬绑定在对象object4
+        bar4()  //输出2
+
+        /*【2】显式绑定-硬绑定
+        *  硬绑定过程-->将函数foo5硬绑定在对象object5上，绑定过程封装为函数bar5
+        *  以后只要调用函数bar5,就会执行上述硬绑定过程，确保了函数bar5始终绑定在object5上
+        */
+        function foo5(){
+            console.log(this.d)
+        }
+        var object5={
+            d:5
+        }
+        var bar5=function(){
+            foo5.call(object5)
+        }
+        bar5()  //输出5
+        setTimeout(bar5,1000)   //输出5
+        bar5.call(window)
+        bar5()  //输出5
+
+        /*【2】显式绑定-创建一个包裹函数
+        *  传入所有的参数并返回接受到的值
+        */
+        console.log('显式绑定-包裹函数')
+        function foo6(something){
+            console.log(this.e+something)
+        }
+        var object6={
+            e:6
+        }
+        var bar6=function(){
+            return foo6.apply(object6,arguments)
+        }
+        /*  1.调用栈为bar6->foo6->apply顺序
+        *   3.执行顺序分为三步
+        *       a) 调用bar6(3),寻找bar6的函数声明，传入参数3
+        *       b) 执行bar6(3)中的代码return foo6.apply(object6,arguments)
+        *       c) 调用函数foo6,首先寻找foo6声明，调用apply方法
+        *           c.1 寻找方法object6,寻找参数argumets
+        *           c.2 将函数foo6的this绑定在对象object6上
+        *       d)执行foo6(something)中的代码console.log(this.e+something)
+        *           d.1 寻找this绑定的那个对象中有没有属性e,如果有，拿到那个属性的值
+        *           d.2 判断something是一个什么类型的数据，是否可执行算术运算，将结果赋值给控制台对象
+        */
+        console.log(bar6(3))    //输出9
+        var test2_bar6=bar6([1,2,3])    //首先输出undefined，再输出61，2，3
+        console.log(test2_bar6)     //输出undefined
+
+        
+    </script>
+</body>
+
+</html>

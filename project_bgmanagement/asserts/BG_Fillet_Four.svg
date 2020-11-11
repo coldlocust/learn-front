@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.1 (89650) - https://sketch.com -->
+    <title>BG/Fillet/Four</title>
+    <desc>Created with Sketch.</desc>
+    <g id="BG/Fillet/Four" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="BG" fill="#FFFFFF" x="0" y="0" width="40" height="40" rx="4"></rect>
+        <rect id="Line" stroke="#D3D9E6" stroke-linecap="round" stroke-linejoin="round" x="0" y="0" width="40" height="40" rx="4"></rect>
+    </g>
+</svg>

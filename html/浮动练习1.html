@@ -1,0 +1,121 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-21 16:53:46
+ * @LastEditTime: 2020-09-21 18:38:34
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \html&CSS&JavaScript\html\浮动练习1.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浮动练习1-左边固定，右边自适应</title>
+    <style>
+      .box_1,
+      .left,
+      .right {
+        height: 300px;
+      }
+      .box_1 {
+        width: 800px;
+        margin: 0 auto;
+        background-color: gray;
+      }
+      .left {
+        float: left;
+        width: 300px;
+        background-color: skyblue;
+      }
+      .right {
+        float: right;
+        width: calc(100% - 300px);
+        background-color: #fc8500;
+      }
+
+      .box_2 {
+        width: 800px;
+        height: 300px;
+        margin: 0 auto;
+        padding-inline-start: 0px;
+        background-color: #9ad0dd23;
+      }
+      .box_2 li {
+        float: left;
+        width: 180px;
+        height: 300px;
+        background-color: grey;
+        margin-right: 10px;
+        list-style: none;
+      }
+      /* 注意权重的提升 */
+      .box_2 .riseli {
+        margin-right: 0;
+      }
+      /* 调用CSS的calc函数计算最左边li元素的margin-left,使最左的li的margin-left等于最右的li的margin-right */
+      .box_2 .leftli {
+        margin-left: calc((100% - 4 * 180px - 3 * 10px) / 2);
+      }
+
+      .box_3,
+      .left_nav,
+      .right_content{
+          height: 300px;
+      }
+      .box_3 {
+        width: 800px;
+        margin: 0 auto;
+        background-color:greenyellow;
+      }
+      .left_nav{
+          float: left;
+          width: 150px;
+          background-color: #fc8500;
+      }
+      .right_content{
+          float: right;
+          width: 650px;
+          background-color: green;
+      }
+      .right_content > div {
+        float: left;
+        height: 130px;
+        width: 150px;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        background-color: grey;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box_1">
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+
+    <!-- 注意对ul元素的padding-inline-start的消除或设置 -->
+    <ul class="box_2">
+      <li class="leftli">1</li>
+      <li>2</li>
+      <li>3</li>
+      <li class="riseli">4</li>
+    </ul>
+
+    <div class="box_3">
+      <div class="left_nav"></div>
+      <div class="right_content">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+      </div>
+    </div>
+  </body>
+</html>

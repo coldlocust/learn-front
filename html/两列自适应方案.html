@@ -1,0 +1,46 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-18 11:28:12
+ * @LastEditTime: 2020-09-18 14:20:53
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \project_html&CSS\html\两列自适应方案.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .left{
+            float: left;
+            width: 100px;
+            position: relative;
+        }
+        .right_fix{
+            float: right;
+            width: 100%;
+            margin-left: -100px;
+        }
+        .right{
+            margin-left: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="left">
+            <p>left</p>
+        </div>
+        <div class="right_fix">
+            <div class="right">
+                <p>right</p>
+                <p>right</p>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>

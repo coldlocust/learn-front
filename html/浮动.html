@@ -1,0 +1,102 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-21 11:46:07
+ * @LastEditTime: 2020-09-22 09:19:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \html&CSS&JavaScript\html\浮动.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浮动</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .float_picture {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin-right: 15px;
+      }
+
+      .around {
+        width: 300px;
+        padding: 10px;
+        background-color: pink;
+      }
+
+      div,
+      span {
+        float: left;
+        width: 198px;
+        height: 198px;
+        border: 1px solid grey;
+      }
+
+      div {
+        background-color: skyblue;
+      }
+
+      span {
+        float: left;
+        background-color: #ff8500;
+      }
+
+      .box_span_right {
+        /* 如何设置浮动元素父元素的位置 */
+        position: relative;
+        left: 0px;
+        top: 200px;
+
+        width: 600px;
+      }
+
+      /* 清除浮动的方法 */
+      /* 使用CSS的:after伪元素 
+      结合 :after 伪元素（注意这不是伪类，而是伪元素，代表一个元素之后最近的元素）和 IEhack ，可以完美兼容当前主流的各大浏览器，
+      这里的 IEhack 指的是触发 hasLayout。给浮动元素的容器添加一个clearfix的class，
+      然后给这个class添加一个:after伪元素实现元素末尾添加一个看不见的块元素（Block element）清理浮动。 */
+      .clearfix::after {
+        content: "020";
+        display: block;
+        height: 0;
+        /* 在左右两侧均不允许浮动元素。 */
+        clear: both;
+        visibility: hidden;
+    }
+    .clearfix{
+        /* 触发haslayout */
+        /* ???没搞懂 */
+        zoom: 1;
+    }
+    </style>
+  </head>
+
+  <body>
+    <img class="float_picture" src="../asserts/forest.jpg" />
+    <p class="around">
+      Harry Potter is a series of fantasy novels written by British author J. K.
+      Rowling. The novels chronicle the life of a young wizard, Harry Potter,
+      and his friends Hermione Granger and Ron Weasley, all of whom are students
+      at Hogwarts School of Witchcraft and Wizardry.
+    </p>
+
+    <!-- 采用标准流的父元素排列上下位置，内部子元素采取浮动排列左右位置 -->
+    <div class="box_div_left">
+      <div class="box_1">box_1</div>
+      <div class="box_2">box_2</div>
+      <div class="box_3">box_3</div>
+    </div>
+
+    <div class="box_span_right clearfix">
+      <span class="span_1">span_1</span>
+      <span class="span_3">span_2</span>
+      <span class="span_3">span_3</span>
+    </div>
+  </body>
+</html>

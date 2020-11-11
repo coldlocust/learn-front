@@ -1,0 +1,392 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    height: 16px;
+    font-size: 12px;
+    font-family: MicrosoftYaHei;
+    text-align: left;
+    line-height: 16px;
+    background-color: #f5f7fc;
+}
+
+#top_container {
+    height: 48px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+#content_container {
+    /* overflow: hidden; */
+    height: calc(100vh - 48px);
+}
+
+.left_topbg,
+.right_topbg {
+    width: 48px;
+    height: 48px;
+}
+
+.left_topbg {
+    float: left;
+    background-color: #004ea2;
+}
+
+.left_toplogo {
+    margin: 16%;
+    width: 32px;
+    height: 32px;
+}
+
+.right_topbg {
+    float: right;
+    background-color: #088dff;
+}
+
+.right_topalarmico {
+    margin-top: 10px;
+    margin-bottom: 2px;
+    margin-left: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.right_topalarmnum {
+    margin-left: 18px;
+    width: 15px;
+    height: 32px;
+    font-size: 12px;
+    font-family: MicrosoftYaHei;
+    text-align: center;
+    color: #ffffff;
+    line-height: 16px;
+}
+
+.top_name {
+    float: left;
+    margin-left: 2%;
+    margin-top: 15px;
+    width: 72px;
+    height: 24px;
+    font-size: 18px;
+    font-family: MicrosoftYaHei;
+    text-align: left;
+    color: #004ea2;
+    line-height: 24px;
+}
+
+.right_topnav {
+    float: right;
+    width: 800px;
+    height: 48px;
+}
+
+.toptextStyle {
+    margin-top: 8px;
+    color: #2d374b;
+}
+
+.searchBlockStyle {
+    width: 250px;
+    height: 28px;
+    border: 1px solid black;
+}
+
+.searchicoStyle {
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin-left: 9px;
+    margin-top: -23px;
+}
+
+.top_searchBlock {
+    margin-top: 8px;
+    left: 15px;
+}
+
+.top_searchico {
+    margin-left: 9px;
+    bottom: 50px;
+}
+
+.searchinputStyle {
+    float: left;
+    margin-left: 41px;
+    margin-top: -29px;
+    width: 210px;
+    height: 28px;
+    border: none;
+    outline: none;
+}
+
+input::-webkit-input-placeholder {
+    width: 96px;
+    height: 16px;
+    font-size: 12px;
+    font-family: MicrosoftYaHei;
+    text-align: left;
+    color: #cccccc;
+    line-height: 16px;
+}
+
+.top_systemnav,
+.top_toolsnav,
+.top_managernav {
+    float: left;
+    width: 110px;
+}
+
+.top_systemnav,
+.top_toolsnav {
+    margin-top: -26px;
+}
+
+.top_systemnav>div,
+.top_systemnav>img,
+.top_toolsnav>div,
+.top_toolsnav>img {
+    float: left;
+    margin-top: 5px;
+    margin-left: 6px;
+}
+
+.topicoStyle {
+    margin-top: 7px;
+    width: 15px;
+    height: 15px;
+    border: 1px dashed black;
+}
+
+.right_topnavtext {
+    color: #2d374b;
+}
+
+.top_systemnav {
+    margin-left: 370px;
+}
+
+.top_toolsnav {
+    margin-left: 520px;
+}
+
+.top_managernav {
+    margin-top: -30px;
+    margin-left: 670px;
+}
+
+.top_managerico {
+    width: 32px;
+    height: 32px;
+}
+
+.top_managernav .top_managerico {
+    float: left;
+}
+
+.top_managernav .right_topnavtext,
+.top_managernav .topicoStyle {
+    float: left;
+    margin-top: 8px;
+    margin-left: 6px;
+}
+
+.left_container {
+    float: left;
+    width: 48px;
+    height: calc(100vh - 48px);
+    background-color: #003d7f;
+}
+
+.left_container>img {
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin-left: 14px;
+    margin-top: 30px;
+}
+
+.left_containerdown>img {
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin-left: 14px;
+    margin-bottom: -30px;
+}
+
+
+
+/* .ll_viewKeepYes,
+.ll_setting {
+    margin-bottom: 20px;
+} */
+
+.table_tagPage {
+    overflow: hidden;
+    background-color: #e9edf5;
+    height: 40px;
+}
+
+.table_tagPage .activetagPage,
+.table_tagPage .noactivetagPage {
+    float: left;
+    width: 160px;
+    height: 32px;
+    margin-top: 8px;
+    margin-left: 16px;
+}
+
+.activetagPage {
+    color: #2d374b;
+    background-color: #f5f7fc;
+}
+
+.noactivetagPage {
+    color: #666e80;
+    background-color: #d3d9e6;
+}
+
+.manageLabel {
+    overflow: hidden;
+    height: 53px;
+}
+
+.manageLabel .mlc_template,
+.manageLabel .mlc_background {
+    float: left;
+    width: 56px;
+    height: 19px;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.mltextStyle {
+    height: 19px;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    text-align: left;
+    line-height: 19px;
+}
+
+.mlcmlc_templatem {
+    color: #2d374b;
+}
+
+.mlc_background {
+    color: #088dff;
+}
+
+.mlc_background_line {
+    width: 56px;
+    height: 2px;
+    background: #088dff;
+    margin-left: 225px;
+}
+
+.managelabel_line {
+    border-bottom: 1px solid #d3d9e6;
+    margin-left: 64px;
+}
+
+.fillbox {
+    height: 16px;
+}
+
+.addfile {
+    overflow: hidden;
+    height: 40px;
+    width: 280px;
+    background-color: #e9edf5;
+}
+
+.bg_addfile {
+    height: 28px;
+    width: 40px;
+    margin-left: 15px;
+    margin-top: 6px;
+    background-color: #ffffff;
+}
+
+.addfile_ico {
+    height: 16px;
+    width: 16px;
+    margin: 6px 12px;
+}
+
+.left_nav,
+.right_content {
+    float: left;
+    height: calc(100vh - 180px);
+    background-color: #fff;
+    margin-left: 16px;
+}
+
+.left_nav {
+    width: 280px;
+    color: #333333;
+}
+
+.left_nav_search {
+    margin-left: 15px;
+}
+
+.right_content {
+    width: calc(100vw - 380px);
+}
+
+.left_nav_toptree {
+    height: 28px;
+    width: 248px;
+    margin-top: 16px;
+    margin-left: 16px;
+    background-color: #e9edf5;
+}
+
+.sbsico_style {
+    width: 15px;
+    height: 15px;
+    border: 1px dashed black;
+}
+
+.left_nav_toptree>img,
+.left_nav_toptree>div {
+    float: left;
+    margin-left: 6px;
+    margin-top: 6px;
+}
+
+.lnav_vline {
+    width: 2px;
+    height: 273px;
+    border: 1px solid #e9edf5;
+    margin-left: 29px;
+}
+
+.lnav_cline {
+    width: 10px;
+    height: 1px;
+    border: 1px solid #e9edf5;
+    margin-top: -255px;
+    margin-left: 34px;
+}
+
+.left_nav_limb1 {
+    height: 28px;
+    width: 150px;
+    /* margin-top: 16px; */
+    margin-left: 42px;
+}
+
+.left_nav_limb1>img,
+.left_nav_limb1>div {
+    float: left;
+    margin-left: 6px;
+    margin-top: -10px;
+}
