@@ -1,0 +1,14 @@
+本地通过VScode的方式创建了分支，但是没有和远程分支联系到一起
+报错
+fatal: The current branch git has no upstream branch.
+To push the current branch and set the remote as upstream, use
+    git push --set-upstream origin git
+
+解决方案
+-在本地的develop分支（也可以是其他分支）上面，直接 push
+ 方案1：
+ git push -u origin develop(这个develop是远程分支名)
+-本地不在develop分支上，先git checkout develop切换分支至本地develop分支再执行刚才那条推送命令推至远程develop分支。
+ 方案2：
+ git checkout develop 
+ git push -u origin develop
