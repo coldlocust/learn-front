@@ -29,7 +29,7 @@ export default {
       currentView: ''
     }
   },
- // 解决方案1
+ // 解决方案1-最优
   mounted() {
     const skipView = this.$route.params.componentName
     if(!skipView) {
@@ -53,7 +53,7 @@ export default {
       view: ''
     }
   },
-  // 解决方案2
+  // 解决方案2-理解computed,watch的使用方法
   computed: {
     currentView: {
       get() {
