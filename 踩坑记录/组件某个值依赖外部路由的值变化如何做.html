@@ -1,0 +1,76 @@
+<!-- 组件某个值依赖外部路由传过来的参数变化 -->
+<!-- 重要的是Vue中对mounted,computed,watch的应用，组件依赖于项目文件，这里不做深究 -->
+<template>
+  <div>
+    <el-container class="cui-container">
+      <el-main>
+        <!--Tab切换页-->
+        <cui-panel class="right-table">
+          <el-tabs v-model="currentView" type="card">
+            <el-tab-pane label="组件类型" name="typeClassify"></el-tab-pane>
+            <el-tab-pane label="使用目的" name="purposeClassify"></el-tab-pane>
+          </el-tabs>
+          <!--将v-show标签转换成 currentView 变量绑定的组件-->
+          <v-show :is="currentView"></v-show>
+        </cui-panel>
+      </el-main>
+    </el-container>
+  </div>
+</template>
+
+<!-- 解决方案1,通过mounted在页面进入时对路由判断 -->
+<script>
+import typeClassify from './typeClassify'
+import purposeClassify from './purposeClassify'
+export default {
+  components: { typeClassify, purposeClassify },
+  data() {
+    return {
+      currentView: ''
+    }
+  },
+ // 解决方案1
+  mounted() {
+    const skipView = this.$route.params.componentName
+    if(!skipView) {
+      this.currentView = 'typeClassify'
+    } else {
+      this.currentView = skipView
+    }
+  }
+}
+</script>
+
+
+<!-- 解决方案2，通过computed和watch判断，其中watch负责监听路由 -->
+<script>
+import typeClassify from './typeClassify'
+import purposeClassify from './purposeClassify'
+export default {
+  components: { typeClassify, purposeClassify },
+  data() {
+    return {
+      view: ''
+    }
+  },
+  // 解决方案2
+  computed: {
+    currentView: {
+      get() {
+        return this.view
+      },
+      set(val) {
+        this.view = val
+      }
+    }
+  },
+  watch: {
+    '$route.params.componentName': {
+      handler(val) {
+        this.view = val || 'typeClassify'
+      },
+      immediate: true
+    }
+  }
+}
+</script>
