@@ -1,0 +1,108 @@
+<!-- 备注，这仅仅是一个demo，演示为何要在组件中那样做 -->
+
+<!-- Vue在标签内指定一个变量如何做  :variable="variable" -->
+<!--    :是v-bind指令的缩写，v-bind指令可以用于响应式地更新HTML特性 -->
+<!-- Vue在标签内指定一个变量并有条件判断如何做，假设variable是一个number类型的数据-->
+<!--    :variable="variable===1 ? varialbe1|constant1 : variable1|constant1  -->
+
+<!-- Vue在标签内指定一个常量如何做  constant="constant" -->
+
+<!-- Vue在标签内为一些Dom事件或封装好的操作绑定如何做 @events='events' -->
+<!--    @是v-on指令的缩写，v-on指令用于监听DOM事件 -->
+
+<!-- 以上见官方文档：https://cn.vuejs.org/v2/guide/syntax.html#%E5%8F%82%E6%95%B0 -->
+<template>
+    <div>
+        <el-container class="cui-container">
+            <el-main>
+                <!--Tab切换页表头-->
+                <cui-panel class="right-table">
+                    <el-tabs v-model="currentView" type="card">
+                        <el-tab-pane label="组件类型" name="typeClassify"></el-tab-pane>
+                        <el-tab-pane label="使用目的" name="purposeClassify"></el-tab-pane>
+                    </el-tabs>
+                    <!-- tab页面 -->
+                    <!-- classify-components是两个基于el-table和其他一些操作封装的组件 -->
+                    <!-- 如果tab页面互相切换，但是不想保留缓存数据（参考Vuediffer算法），你必须为两个公有组件指定一个key -->
+                    <!--    比如 key="1",必须使得组件的key唯一且可区分 -->
+                    <!-- v-if在每次组件打开的时候都会渲染，但是由于Vue differ算法的影响，组件DOM元素上的数据可能依然会缓存，这也是要指定key的原因 -->
+                    <!-- 如果将这两个子组件不封装，直接在父组件这里写好复用可以吗？ -->
+                    <!-- 不推荐这样做，1.组件的复用性没有体现，如果其他地方要用到，又要重新写 -->
+                    <!--              2.两个组件如果是基于el-table封装的，你将会发现，哪怕tab页切换，你以为组件换过来了 -->
+                    <!--                但是，两个组件仍然用的是同一个tableData数据，由于Vue的缓存机制，Vue这样做是有好处的-->
+                    <!--                但是建议你采用本demo的做法，避免用到Vue的缓存机制，并且具有很好的封装和复用特性-->
+                    <classify-components key="1" v-if="currentView === 'typeClassify'" classifyType="typeClassify"
+                        :tableData="data1" @updateTableData="updateTableData">
+                    </classify-components>
+                    <classify-components key="2" v-else classifyType="purposeClassify" :tableData="data2"
+                        @updateTableData="updateTableData">
+                    </classify-components>
+                </cui-panel>
+            </el-main>
+        </el-container>
+    </div>
+</template>
+
+<script>
+    import classifyComponents from './classifyComponents'
+    export default {
+        components: { classifyComponents },
+        data() {
+            return {
+                currentView: '',
+                data1: [
+                    {
+                        lxmc: '1',
+                        bz: '1',
+                        cjrxm: '1',
+                        cjsj: '1'
+                    },
+                    {
+                        lxmc: '1',
+                        bz: '1',
+                        cjrxm: '1',
+                        cjsj: '1'
+                    },
+                    {
+                        lxmc: '1',
+                        bz: '1',
+                        cjrxm: '1',
+                        cjsj: '1'
+                    }
+                ],
+                data2: [
+                    {
+                        lxmc: '1',
+                        bz: '2',
+                        cjrxm: '1',
+                        cjsj: '1'
+                    },
+                    {
+                        lxmc: '1',
+                        bz: '2',
+                        cjrxm: '1',
+                        cjsj: '1'
+                    },
+                    {
+                        lxmc: '1',
+                        bz: '21',
+                        cjrxm: '1',
+                        cjsj: '1'
+                    }
+                ]
+            }
+        },
+        mounted() {
+            const skipView = this.$route.params.componentName
+            if (!skipView) {
+                this.currentView = 'typeClassify'
+            } else {
+                this.currentView = skipView
+            }
+        },
+
+        methods: {
+            updateTableData() { }
+        }
+    }
+</script>
