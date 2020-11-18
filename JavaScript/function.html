@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-11-11 17:28:08
+ * @LastEditTime: 2020-11-18 18:29:52
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \html&CSS&JavaScript\JavaScript\function.html
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +43,75 @@
          howManyArgus(1,'a','gsg')
          howManyArgus([1],{1:1})
 
-         
+
+
+         /* Function类型
+         *  函数实际上是对象，每个函数都是Function类型的实例，并且都与其他引用类型一样具有属性和方法
+         *  函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定
+         */
+
+         //使用函数声明语法定义函数
+         function sum_1(num1,num2){
+             return num1+num2
+         }
+         //使用函数表达式定义函数   
+         var sum_2=function(num1,num2){
+             return num1+num2
+         }
+         //使用Function构造函数，Function构造函数可以接受任意数量的参数
+         //参数说明：最后一个参数始终被看成函数体，前面的参数则枚举出了新函数的参数
+         //知道有这么回事就行了，不推荐使用
+         var sum_3=new Function("num1","num2","return num1+num2")
+
+         /* 函数声明与函数表达式的区别
+         *  函数声明：解析器率先读取，并使其在执行任何代码之前可用（可访问）
+         *          代码执行前：解释器就已经通过一个名为函数声明提升的过程
+                        <读取并将函数声明添加到执行环境中>
+                    对代码求值时：js引擎在第一遍会声明函数并将他们放到源代码的顶部
+                    ->所以，即使声明函数的代码在调用它的代码后面，js引擎也会通过变量提升将之提升到顶部
+         *  函数表达式：等到解析器执行到它所在的代码行，才会真正被解释执行
+         *  函数声明和函数表达式什么时候通过变量访问函数有区别，其他都是一样的
+         */
+
+         /* 作为值的函数
+         *  可以像传递参数一样把一个函数传递给另一个函数，还可以将一个函数作为另一个函数的结果返回
+         */
+         console.log('作为值的函数')
+         function callSomeFunction(someFunction,someArguments){
+             return someFunction(someArguments)
+         }
+         function add10(num){
+             return num+10
+         }
+         var result_1=callSomeFunction(add10,10)
+         console.log(result_1)  //20
+         function getGreeting(name){
+             return 'Hello,'+name
+         }
+         var result_2=callSomeFunction(getGreeting,'zhao')
+         console.log(result_2)
+
+        /* 作为值的函数
+        *  还可以将一个函数作为另一个函数的结果返回
+        *  暂未理解sort在对number，String类型排序的规则
+        */
+        var count=0
+        function createComparisionFunction(properyName){
+            return function(object1,object2){
+                ++count
+                var value1=object1[properyName]
+                var value2=object2[properyName]
+                console.log(count+" "+value1)
+                console.log(count+" "+value2)
+                return value2-value1  //????
+            }
+        }
+        var data=[{name:'x',age:60},{name:'z',age:30}]
+        data.sort(createComparisionFunction('name')) 
+        console.log(data)
+        count=0
+        data.sort(createComparisionFunction('age'))
+        console.log(data)
     </script>
 </body>
 </html>
