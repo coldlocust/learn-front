@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-11 17:28:08
- * @LastEditTime: 2020-11-18 18:29:52
+ * @LastEditTime: 2020-11-19 10:44:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \html&CSS&JavaScript\JavaScript\function.html
@@ -88,12 +88,12 @@
          function getGreeting(name){
              return 'Hello,'+name
          }
-         var result_2=callSomeFunction(getGreeting,'zhao')
-         console.log(result_2)
+         var result_2=callSomeFunction(getGreeting,'wednesday')
+         console.log(result_2)  //hello wednesday
 
         /* 作为值的函数
         *  还可以将一个函数作为另一个函数的结果返回
-        *  暂未理解sort在对number，String类型排序的规则
+        *  暂未理解sort在对Number，String类型排序的规则
         */
         var count=0
         function createComparisionFunction(properyName){
@@ -103,15 +103,17 @@
                 var value2=object2[properyName]
                 console.log(count+" "+value1)
                 console.log(count+" "+value2)
-                return value2-value1  //????
+                return value1-value2  
             }
         }
-        var data=[{name:'x',age:60},{name:'z',age:30}]
+        var data=[{name:'y',age:50},{name:'z',age:70},{name:'x',age:60}]
         data.sort(createComparisionFunction('name')) 
         console.log(data)
         count=0
         data.sort(createComparisionFunction('age'))
         console.log(data)
+
+       
     </script>
 </body>
 </html>

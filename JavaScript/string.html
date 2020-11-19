@@ -1,0 +1,74 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-11-19 14:12:02
+ * @LastEditTime: 2020-11-19 15:02:29
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \html&CSS&JavaScript\JavaScript\string.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        */
+        const stringValue = "Lorem ipsum dolor sit amet ,cosectetur adipisicing elit"
+        let positions = new Array()
+        let pos = stringValue.indexOf('e')
+        while (pos > -1) {
+            positions.push(pos)
+            pos = stringValue.indexOf('e', pos + 1)
+        }
+        console.log(positions)  //输出'e'在字符串中对应的位置 
+
+        /* trim()方法：创建一个字符串的副本
+        *   该副本会删除前置及后缀的所有空格，然后返回结果
+        */
+        const stringValue_2 = "  hello world  "
+        const trimStringValue_2 = stringValue_2.trim()
+        console.log(trimStringValue_2)
+        console.log(stringValue_2)
+
+        /* 字符串的模式匹配方法
+        *   match()方法：只接受一个参数，这个参数要么是一个正则表达式，要么是一个RegExp对象
+        *   返回结果：对象，对象的第一个属性为匹配的字符串，index属性保存着匹配到第一个字符串在数组中的下标
+        */
+        const text = "car bar sat fat"
+        const pattern = /at/
+        //与pattern.exec(text)相同
+        const matchResult = text.match(pattern)
+        console.log(matchResult.index)  //9
+        console.log(matchResult)
+
+        /* 字符串的模式匹配方法
+        *   search()方法：只接受一个参数，这个参数要么是一个正则表达式，要么是一个RegExp对象
+        *   返回结果：字符串中第一个匹配项的索引，如果没有找到，返回-1
+        */
+        const searchResult = text.search(pattern)
+        console.log(searchResult)  //9
+
+        /* 字符串中子串的替换方法
+        *   replace()方法：接受两个参数，
+        *       1.第一个参数是一个RegExp对象或一个字符串(这个字符串不会被替换成正则表达式)
+        *           如果第一个参数是一个字符串，只会替换掉第一个子字符串
+        *           如果第一个参数是一个正则表达式，会替换掉所有的子字符串（要指定全局(g)标志）
+        *       2.第二个参数是一个字符串或一个函数(指定要替换的内容)
+        *   返回结果：字符串中子串被指定字符串或正则替换后的【副本】
+        */
+        const replaceText="cat bat sat fat"
+        const passParametersByString=replaceText.replace('at','one')
+        console.log(passParametersByString)  //cone bat sat fat
+        const passParametersByRegExp=replaceText.replace(/at/g,'one')
+        console.log(passParametersByRegExp)  //cone bone sone fone
+        console.log(replaceText)  //cat bat sat fat
+    </script>
+</body>
+
+</html>
