@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>第一个 ECharts 实例</title>
+    <!-- ECharts安装：https://www.runoob.com/echarts/echarts-install.html -->
+    <!-- 引入 echarts.js -->
+    <script src="./echarts.js"></script>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        // ECharts库使用json格式来配置
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            /* 【标题】
+            *   为图表配置标题
+            */
+            title: {
+                text: '第一个 ECharts 实例'
+            },
+
+            /* 【提示信息】
+            *   配置提示信息
+            */
+            tooltip: {},
+
+            /* 【图例组件】
+            *   图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
+            */
+            legend: {
+                data: ['销量']
+            },
+
+            /* 【X轴】
+            *   配置要在X轴显示的项
+            */
+            xAxis: {
+                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+            },
+
+            /* 【Y轴】
+            *   配置要在Y轴显示的项
+            */
+            yAxis: {},
+
+            /* 【系列列表】
+            *   每个系列通过type决定自己的图表类型
+            */
+            series: [{
+                name: '销量',  // 系列名称
+                type: 'bar',  // 系列图表类型
+                data: [5, 20, 36, 10, 10, 20]  // 系列中的数据内容
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
