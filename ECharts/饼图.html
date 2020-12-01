@@ -23,13 +23,28 @@
             series: [{
                 name: '访问来源',  // 
                 type: 'pie',  // 饼图
-                radius:"55%",  //饼图半径，外半径为可视区尺寸（容器中宽高较小一项）55%长度
-                data:[
-                {value:1,name:"视频广告"},
-                {value:2,name:"联盟广告"},
-                {value:2,name:"邮件营销"},
-                {value:3,name:"直接访问"},
-                {value:2,name:"搜索引擎"},
+                radius: "55%",  //饼图半径，外半径为可视区尺寸（容器中宽高较小一项）55%长度
+                // roseType: 'angle',  // 把饼图显示成南丁格尔图。
+
+                //设置阴影，透明度，颜色，边框颜色，边框宽度等
+                itemStyle: {
+                    normal: {
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0,0,0,0.5)'
+                    }
+                },
+
+                // 鼠标浮动到图形元素上面，自定义高亮的样式
+                emphasis: {
+                    itemStyle: { color: 'skyblue' },  //高亮时的颜色
+                    label: { show:true,formatter:'高亮时显示的标签内容' }  //高亮时标签的文字
+                },
+                data: [
+                    { value: 1, name: "视频广告" },
+                    { value: 2, name: "联盟广告" },
+                    { value: 2, name: "邮件营销" },
+                    { value: 3, name: "直接访问" },
+                    { value: 2, name: "搜索引擎" },
                 ]
             }]
         };
