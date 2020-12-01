@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 echarts.js -->
+    <script src="./echarts.js"></script>
+    <title>饼图</title>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        // ECharts库使用json格式来配置
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            series: [{
+                name: '访问来源',  // 
+                type: 'pie',  // 饼图
+                radius:"55%",  //饼图半径，外半径为可视区尺寸（容器中宽高较小一项）55%长度
+                data:[
+                {value:1,name:"视频广告"},
+                {value:2,name:"联盟广告"},
+                {value:2,name:"邮件营销"},
+                {value:3,name:"直接访问"},
+                {value:2,name:"搜索引擎"},
+                ]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
