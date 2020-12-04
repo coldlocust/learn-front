@@ -1,0 +1,61 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-02 11:06:09
+ * @LastEditTime: 2020-12-02 13:37:54
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端demo与学习\JavaScript\函数测试.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getOtherQuery(query) {
+            return Object.keys(query).reduce((acc, cur) => {
+                if (cur !== "redirect") {
+                    acc[cur] = query[cur];
+                }
+                return acc;
+            }, {});
+        }
+
+        function getOtherQuery2(query){
+            let otherQuery=query
+            delete otherQuery.redirect
+            return otherQuery
+            // return delete query.redirect
+        }
+        // console.log(getOtherQuery({a:1,redirect:2}))
+        // console.log(getOtherQuery({a:1}))
+        // console.log(getOtherQuery({redirect:2}))
+
+        let obj_1={a:1,redirect:2}
+        let obj_2={a:1}
+        let obj_3={redirect:2}
+        // console.log(getOtherQuery2(obj_1))
+        // console.log(obj_1)
+        // console.log(getOtherQuery2(obj_2))
+        // console.log(obj_2)
+        // console.log(getOtherQuery2(obj_3))
+        // console.log(obj_3)
+
+        const obj={a:1,redirect:2}
+        console.log(obj)
+        function test(o){
+            delete o.redirect
+            return o
+        }
+        console.log(test(obj))
+        console.log(obj)
+
+    </script>
+</body>
+
+</html>

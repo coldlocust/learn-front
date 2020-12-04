@@ -61,3 +61,10 @@
 8.确定某个对象的类型，比如数组(Array),通过instanceof操作符得到结果
     var value=new Array()
     console.log(value instanceof Array)  //true
+
+9.javaScript中的const
+    1.const声明的变量不可更改，但是仅表示变量的地址不可更改，保证那个地址里的数据不变
+    const obj={a:1,b:2}  
+    obj={c:3}  // Uncaught TypeError: Assignment to constant variable.
+    delete obj.a
+    console.log(obj) //{b:2}

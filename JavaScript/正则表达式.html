@@ -1,0 +1,87 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-04 10:08:23
+ * @LastEditTime: 2020-12-04 13:36:18
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端demo与学习\JavaScript\正则表达式.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+</head>
+
+<!-- 参考https://blog.csdn.net/weixin_34144450/article/details/87941336?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control -->
+
+<body>
+    <script>
+        /* 
+         * 
+         */
+
+
+        /* 正则表达式语法
+         * /regeExp/
+         */
+        let reg1 = /hello/
+        console.log(reg1.test("hello"))  //true
+
+        /* 横向模糊匹配：正则可匹配的字符串长度不固定
+         *   1.使用量词：{m,n}  最少m次，最多n次
+         */
+        //正则后面的标识符g表示全局匹配，即在目标子串中按顺序寻找满足匹配模式的所有子串
+        let reg2 = /ab{2,5}c/g
+        const string2 = "abc abbc abbbc abbbbc abbbbbc abbbbbbc"
+        console.log(string2.match(reg2))  //["abbc", "abbbc", "abbbbc", "abbbbbc"]
+
+        /* 纵向模糊匹配：正则匹配的字符串，具体到某一位字符时，它可以不是某个确定的字符，可以有多种可能
+         *   1.使用字符组：[abc] 表示该字符是字符'a','b','c'中的任何一个
+         */
+        let reg3 = /a[123]b/g
+        const string3 = "a0b a1b a2b a3b a4b"
+        console.log(string3.match(reg3))  //["a1b", "a2b", "a3b"]
+
+        /* 贪婪匹配：尽可能多的匹配
+         * 尽可能多的匹配符合要求的数字
+         */
+        let reg4 = /\d{2,5}/g  //数字连续出现2-5次
+        const string4 = "123 1234 12345 123456 1234567"
+        console.log(string4.match(reg4)) //["123", "1234", "12345", "12345", "12345", "67"]
+
+        /* 惰性匹配：尽可能少的匹配
+         * 当匹配到最低要求时，转而进行下一次匹配
+         */
+        let reg5 = /\d{2,5}?/g  //虽然2到5次都行，当2个足够的时候，就不再继续尝试了,转而进行下一次尝试匹配
+        const string5 = "123 1234 12345 123456 1234567"
+        console.log(string5.match(reg5))   //["12", "12", "34", "12", "34", "12", "34", "56", "12", "34", "56"]
+
+        /* 多选分支：支持在多个子模式中任选其一
+         * (p1|p2|p3)：其中p1,p2和p3是子模式，用|(管道符)分隔，表示其中任何之一
+         *  多选分支匹配也是惰性的，当前面的匹配上了，比如p1,这个时候对于其后的子模式就不进行匹配了
+         */
+
+        //匹配16进制颜色值，字符可能出现3次或者6次
+        //[0-9a-fA-F] 表示16进制字符
+        let reg6 = /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})/g
+        const string6 = "#ffbbad #Fc01DF #FFF #ffE"
+        console.log(string6.match(reg6))  //["#ffbbad", "#Fc01DF", "#FFF", "#ffE"]
+        //匹配时间，例23:59
+        //分析，一共四位数字，中间以":"隔开，前两位数字表示小时，后两位数字表示分钟
+        //前两位数字 如果第一位数字是0或1，第二位数字为0-9
+        //          如果第一位数字是2，第二位数字为0-3
+        //后两位数字 第一位数字为0-5，第二位数字为0-9
+        let reg7 = /^([01][0-9]|[2][0-3]):[0-5][0-9]$/  //正则中使用了 ^ 和 $，分别表示字符串开头和结尾
+        console.log(reg7.test("23:59"));  //true
+        console.log(reg7.test("02:07"));  //true
+        console.log(reg7.test("24:00"));  //false
+        // 如果也要求匹配 "7:9"，也就是说时分前面的 "0" 可以省略。
+        let reg7_1 = /^(0?[0-9]|1[0-9]|[2][0-3]):(0?[0-9]|[1-5][0-9])$/
+        console.log(reg7_1.test("7:9"));  //true
+    </script>
+</body>
+
+</html>
