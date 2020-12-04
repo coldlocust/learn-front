@@ -1,0 +1,56 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-04 14:48:15
+ * @LastEditTime: 2020-12-04 15:16:29
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \前端demo与学习\JavaScript\ES6\对象的扩展.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 当变量写在大括号中，变量名是属性名，变量值是属性值
+        */
+        const foo_1 = "bar"
+        const obj = { foo_1 }
+        console.log(obj)  // {foo_1: "bar"}
+        console.log(obj.foo_1)  //"bar"
+
+        function getPoint(x, y) {  //简写的对象方法不能用对象方法，否则会报错
+            return { x, y }
+        }
+        console.log(getPoint(1, 2))  // {x: 1, y: 2}
+
+        /* 函数的name属性，返回函数名，对象方法也是函数，也有name属性
+        */
+        const person = {
+            sayName() {
+                console.log('hello!')
+            }
+        }
+        console.log(person.sayName.name)  //sayName 函数的方法名
+
+        /* 如多对象的方法使用了取值函数(getter)和存值函数(setter)
+        *   name属性不是在该方法上，而是在该方法的属性的描述对象的get和set属性上面
+        *   返回值方法是方法名前加上get和set
+        */
+        const obj_2={
+            get foo(){},
+            set foo(x){}
+        }
+        // obj_2.foo.name //Uncaught TypeError: Cannot read property 'name' of undefined
+        const description=Object.getOwnPropertyDescriptor(obj_2,'foo')
+        console.log(description.get.name)  //get foo
+        console.log(description.set.name)  //set foo
+    </script>
+</body>
+
+</html>
