@@ -1,0 +1,39 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: mazhao
+ * @Date: 2020-12-27 00:16:34
+ * @LastEditors: mazhao
+ * @LastEditTime: 2020-12-27 00:35:42
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第九章代码练习</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * @description: 9.1 能力检测--在浏览器环境下测试任何对象的某个属性是否存在
+         */
+        function isHostMethods(object, property) {
+            let t = typeof object[property];
+            console.log(t);
+            return (
+                t === "function" ||
+                !!(t == "object" && t[property]) ||
+                t === "unknown"
+            );
+        }
+        let obj = {
+            number: 1
+        }
+        console.log(isHostMethods(obj, "push"));
+    </script>
+</body>
+
+</html>
