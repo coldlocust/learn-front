@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>title</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <child :level="1">Hello World</child>
+    </div>
+</body>
+<script>
+    Vue.component('child', {
+        render: function (createElement) {
+            var body = this.$slots.default;
+            //this.$slots返回了一个组件分发下来的元素和内容
+            //this.$slots.default返回了具名的内容
+            return createElement(
+                'h' + this.level,
+                //this.level是利用v-bind注入到组件中的level
+                body
+            )
+        },
+        //因为vue中组件父组件无法向子组件注入内容。所以我们需要通过
+        //v-bind定义一个key，value向子组件注入内容。所要接收的值也需要在定义组件时的props属性中的定义一下
+        props: {
+            level: {
+
+            }
+        }
+    });
+    new Vue({
+        el: "#app"
+    })
+</script>
+
+</html>
