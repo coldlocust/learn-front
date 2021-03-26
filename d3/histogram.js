@@ -45,13 +45,19 @@ let barChart = svg.selectAll("rect")
         return "translate(" + translate + ")";
     });
 // 在图形上方显示数值
+//  返回文本，计算x/y坐标，并填充颜色
 let text = svg.selectAll("text")
     .data(dataset)
     .enter()
     .append("text")
     .text(d => d)
-    .attr("y", (d, i) => svgHeight - d - 2)
+    .attr("y", (d, i) => svgHeight - d - 2)  
     .attr("x", (d, i) => barWidth * i)
     .attr("fill", "#A64C38");
+
+/*  scales：比例尺函数
+*   d3.scaleLinear():线性比例尺
+*       domin():输入域  range():输出域   
+*/
 
 
