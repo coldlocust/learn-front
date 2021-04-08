@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE的click事件：动态设置div的样式</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="aaa" :class="{active:index==isActive}" v-for="(item, index) in contentlist"
+            @click="showdifference(index)" :key="index">
+            {{item.key}}
+        </div>
+    </div>
+</body>
+
+<script>
+    var vm = new Vue({
+        el: '.main',
+        data: {
+            isActive: '',
+            contentlist: [{ key: 1 }, { key: 2 }, { key: 3 }, { key: 4 }]
+        },
+        methods: {
+            showdifference(index) {
+                this.isActive = index
+                console.log(this.isActive)
+            }
+        }
+    })
+</script>
+
+<style>
+    .aaa {
+        margin: 10px;
+        width: 95%;
+        height: 100px;
+        border: 1px solid;
+    }
+    
+    .active {
+        border: 2px solid red;
+    }
+</style>
+
+</html>
