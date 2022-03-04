@@ -1,9 +1,12 @@
 /*
- * @Description: 
+ * @Description: js代码测试
  * @Version: 1.0
  * @Autor: mazhao
  * @Date: 2022-03-01 11:56:49
  * @LastEditors: mazhao
- * @LastEditTime: 2022-03-01 11:56:52
+ * @LastEditTime: 2022-03-01 16:22:13
  */
-print("git@github.com:coldlocust/learn-front.git")
+let ans = "aa"
+let obj = { a: 1 }
+
+console.log(obj.a)
