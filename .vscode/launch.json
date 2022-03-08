@@ -7,7 +7,7 @@
         
         {
             "name": "Launch Program",
-            "program": "${workspaceFolder}/JavaScript/JavaScript高级程序设计-实践-笔记/chapter-3-语言基础.js",
+            "program": "${workspaceFolder}/JavaScript/JavaScript高级程序设计-实践-笔记/js面试题.js",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"

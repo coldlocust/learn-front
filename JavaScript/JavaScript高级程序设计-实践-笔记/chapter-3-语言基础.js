@@ -4,7 +4,7 @@
  * @Autor: mazhao
  * @Date: 2022-03-04 19:27:18
  * @LastEditors: mazhao
- * @LastEditTime: 2022-03-07 10:52:57
+ * @LastEditTime: 2022-03-07 19:30:27
  */
 
 test();
@@ -17,7 +17,13 @@ function test() {
     // letStatement();
 
     // const声明
-    constStatement();
+    // constStatement();
+
+    // 字符串插值
+    // interpolationString();
+
+    // symbol 类型
+    symbolType();
 }
 
 // var声明变量提升
@@ -105,5 +111,57 @@ function constStatement() {
             values.push(person[key]); //[ 'bo', 20, 'man' ]
         }
         console.log(values);
+    }
+}
+
+// 字符串插值
+// 模板字面量在定义时立即求值并转换为字符串实例，任何插入的变量也会从它们最接近的作用域中取值
+function interpolationString() {
+    let value = 5;
+    let name = "star";
+    let interpolationStr = `name:${name} value:${value}`
+    console.log(interpolationStr);
+    // 通过标签函数的第一个参数，即字符串数组的.raw 属性取得每个字符串的原始内容：
+    let printRaw = (strings) => {
+        console.log('Actual characters:');
+        for (const str of strings) {
+            console.log(str);
+        }
+        console.log('Escaped characters:');
+        // 字符串数组的.raw 属性取得每个字符串的原始内容：
+        // for (const rawstr of strings.raw) {
+        //     console.log(rawstr);
+        // }
+    }
+
+    printRaw(`\u00A9${ 'and' }\n`);
+}
+
+// TODO cann't understand how to use
+// Symbol 类型
+// Symbol 是原始值，且Symbol实例是唯一不变的
+// Symbol 的用途是确保对象属性使用唯一标识符，不会发生属性冲突
+function symbolType() {
+    let sym = Symbol();
+    console.log(typeof sym); //symbol
+
+    // 调用 Symbol()函数时，也可以传入一个字符串参数作为对符号的描述（description），将来可以通
+    // 过这个字符串来调试代码。但是，这个字符串参数与符号定义或标识完全无关：
+    let symA = Symbol('A');
+    let symB = Symbol('A');
+    console.log(symA === symB); //false 
+
+    if (false) {
+        //Symbol()函数不能与 new 关键字一起作为构造函数使用。这样做是为了避免创建符号包装对象
+        let mySymbol = new Symbol();
+        console.log(mySymbol); //Symbol is not a constructor
+    }
+
+    //如果确实有用符号包装对象的必要，借用Object()函数
+    if (true) {
+        let mySymbol = Symbol();
+        let myWrappedSymbol = Object(mySymbol);
+        console.log(myWrappedSymbol) //[Symbol: Symbol()]
+        console.log(typeof myWrappedSymbol) //object
     }
 }
