@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+
+    </div>
+
+    <style>
+        * {
+            margin: 0px;
+        }
+        
+        #demo {
+            position: relative;
+            width: 0px;
+            height: 0px;
+            /* div块水平居中 */
+            margin: 0 auto;
+            border-width: 200px;
+            border-style: solid;
+            /* CSS相邻边框连接处均分 */
+            /* 宽高设置为0,只设置border，把任意三条边设置为transparent */
+            border-color: pink transparent transparent transparent;
+        }
+    </style>
+</body>
+
+</html>
