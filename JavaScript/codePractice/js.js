@@ -4,7 +4,7 @@
  * @Autor: mazhao
  * @Date: 2022-03-08 09:22:05
  * @LastEditors: mazhao
- * @LastEditTime: 2022-03-08 20:10:58
+ * @LastEditTime: 2022-03-10 10:54:22
  */
 
 /**
@@ -35,5 +35,5 @@ function test() {
     //  instanceOf 判断一个实例是否属于某种类型
     let person = new Object();
     person.nam = "bob";
-    console.log(newInstanceOf("bob", person));
+    console.log(newInstanceOf("bob", String));
 }

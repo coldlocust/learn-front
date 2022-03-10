@@ -1,13 +1,11 @@
 /*
- * @Author: mazhao
- * @Date: 2022-03-08 09:28:16
- * @LastEditTime: 2022-03-08 11:24:48
+ * @Description: js常用面试题
+ * @Version: 1.0
+ * @Autor: mazhao
+ * @Date: 2022-03-08 09:22:05
  * @LastEditors: mazhao
- * @Description: js面试题
- * @FilePath: \learn-front\JavaScript\JavaScript高级程序设计-实践-笔记\codePractice\instanceOf.js
- * 可以输入预定的版权声明、个性签名、空行等
+ * @LastEditTime: 2022-03-10 10:54:38
  */
-
 
 /**
  * @description: 
@@ -25,12 +23,17 @@ function newInstanceOf(leftvalue, rightvalue) {
         if (leftvalue === rightProto) {
             return true;
         }
-        leftvalue = left.__proto__;
+        leftvalue = leftvalue.__proto__;
     }
 }
 
 
+test();
 
-export {
-    newInstanceOf,
+function test() {
+    //2.17  手动实现instanceOf
+    //  instanceOf 判断一个实例是否属于某种类型
+    let person = new Object();
+    person.nam = "bob";
+    console.log(newInstanceOf("bob", String));
 }
