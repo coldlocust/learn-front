@@ -1,7 +1,7 @@
 /*
  * @Author: mazhao
  * @Date: 2022-03-10 21:29:38
- * @LastEditTime: 2022-03-10 21:41:01
+ * @LastEditTime: 2022-03-10 21:42:26
  * @LastEditors: mazhao
  * @Description: 
  * @FilePath: \learn-front\JavaScript\codePractice\code\二维数组转换为一维数组.js
