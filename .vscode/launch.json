@@ -4,7 +4,6 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
         {
             "name": "Launch Program",
             "program": "${workspaceFolder}/JavaScript/codePractice/js.js",
@@ -14,13 +13,5 @@
             ],
             "type": "pwa-node"
         },
-
-    
-        {
-            "type": "pwa-chrome",
-            "request": "launch",
-            "name": "Open table.html",
-            "file": "e:\\project_html\\table.html"
-        }
     ]
 }
