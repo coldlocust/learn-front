@@ -6,7 +6,7 @@
     "configurations": [
         {
             "name": "Launch Program",
-            "program": "${workspaceFolder}/JavaScript/codePractice/js.js",
+            "program": "${workspaceFolder}/JavaScript/js.js",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"

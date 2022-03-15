@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <p>object</p>
+    <!-- 参考JavaScript高级教程第四版P230 -->
+    <script>
+        var object = {};
+        Object.defineProperty(object, "a", {
+            value: "2",
+            writable: false,
+            configurable: true,
+            enumerable: true,
+        });
+        object.a = 3;
+        console.log(object.a); //输出2
+
+        var object1 = {
+            //给b定义一个getter,访问b时，隐式调用getter函数
+            get b() {
+                return 2;
+            },
+        };
+        Object.defineProperty(
+            object1, //目标对象
+            "c", //属性名
+            {
+                //描述符
+                //给b设置一个getter
+                get: function() {
+                    return this.b * 2;
+                },
+                //确保b会出现在对象的属性列表中
+                enumerable: true,
+            }
+        );
+        console.log(object1.b); //输出2
+        console.log(object1.c);
+
+        class Vehicle {
+            engines = 1;
+            ignition() {
+                console.log("turn on my Vehicle");
+            }
+            drive() {
+                this.ignition();
+                console.log(this);
+                // console.log(this.drive())   //这是一个无法避免的逻辑漏洞，将会引起drive()函数的无限递归调用
+                console.log("sterring and move forward");
+            }
+        }
+        var myVehicle = new Vehicle();
+        console.log(myVehicle.ignition());
+        console.log(myVehicle.drive());
+    </script>
+</body>
+
+</html>
