@@ -1,7 +1,7 @@
 /*
  * @Author: mazhao
  * @Date: 2022-03-15 21:14:30
- * @LastEditTime: 2022-03-15 21:41:54
+ * @LastEditTime: 2022-03-16 10:22:41
  * @LastEditors: mazhao
  * @Description: 
  * @FilePath: \learn-front\JavaScript\NativeJavaScript\Function\function.js
