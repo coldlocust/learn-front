@@ -4,7 +4,7 @@
  * @Autor: mazhao
  * @Date: 2022-03-07 12:46:01
  * @LastEditors: mazhao
- * @LastEditTime: 2022-03-07 15:20:12
+ * @LastEditTime: 2022-03-16 16:30:21
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -18,11 +18,14 @@
 
 <body>
     <div class="center-div">居中div</div>
+    <div class="center-screen-div"></div>
 </body>
 
 </html>
 
 <style>
+    /* 水平居中 */
+    
     .center-div {
         border: 1px solid red;
         margin: 0 auto;
@@ -30,5 +33,16 @@
         line-height: 50px;
         text-align: center;
         width: 80px;
+    }
+    
+    .center-screen-div {
+        border: 1px solid red;
+        float: left;
+        position: absolute;
+        width: 200px;
+        height: 100px;
+        left: 50%;
+        top: 50%;
+        margin: -50px 0 0 -100px;
     }
 </style>
