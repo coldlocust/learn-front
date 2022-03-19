@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Launch Program",
-      "program": "${workspaceFolder}/JavaScript/codePractice/手写Js原生(语法糖，函数)/this-(call,apply,bind).js",
+      "program": "${workspaceFolder}/JavaScript/codePractice/solution/Function-解析url.js",
       "request": "launch",
       "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"
