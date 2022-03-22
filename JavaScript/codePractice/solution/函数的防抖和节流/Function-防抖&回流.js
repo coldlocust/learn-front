@@ -1,12 +1,12 @@
 /*
- * @Author: mazhao
- * @Date: 2022-03-15 11:30:04
- * @LastEditTime: 2022-03-21 17:36:09
+ * @Description: 防抖函数
+ * @Version: 2.0
+ * @Autor: mazhao
+ * @Date: 2022-03-21 17:27:05
  * @LastEditors: mazhao
- * @Description: 
- * @FilePath: \learn-front\JavaScript\js.js
- * 可以输入预定的版权声明、个性签名、空行等
+ * @LastEditTime: 2022-03-21 22:44:32
  */
+
 
 const debouce=function(func,delay){
     let time=null;

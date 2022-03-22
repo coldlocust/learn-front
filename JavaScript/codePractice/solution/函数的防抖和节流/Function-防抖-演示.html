@@ -1,0 +1,57 @@
+<!--
+ * @Description: 防抖&节流，参考链接：https://juejin.cn/post/6844903795420299278
+ * @Description: 防抖&节流，参考链接：https://juejin.cn/post/6844904200917221389#heading-73
+ * @Version: 1.0
+ * @Autor: mazhao
+ * @Date: 2022-03-21 21:37:27
+ * @LastEditors: mazhao
+ * @LastEditTime: 2022-03-22 13:04:53
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 防抖
+        1.防抖：任务频繁触发的情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行
+            另外一种说法：事件在被触发的n秒后再执行回调，如果在这n秒内事件又被触发，则重新计时
+            另外一种说法：防抖就是将一段时间内连续的多次触发转化为一次触发。
+                一般可以使用在用户输入停止一段时间过后再去获取数据，而不是每次输入都去获取，
+            好处：在一些点击请求的事件上，避免因为用户的多次点击向后端发送多次请求
+            用处：有个输入框，输入之后会调用接口，获取联想词。但是，因为频繁调用接口不太好，所以我们在代码中使用防抖功能，
+            只有在用户输入完毕的一段时间后，才会调用接口，出现联想词
+     -->
+    <button id="debounce">点我防抖！</button>
+    <script>
+        window.onload=function(){
+            // 1、获取按钮【点我防抖】，并绑定事件
+            let myDebounce=document.getElementById("debounce");
+            myDebounce.addEventListener("click",debounce(sayDebounce));
+        }
+        
+        // 2、防抖功能函数，接受传参
+        function debounce(fn,delay=1000){
+            // 2.1、创建一个标记用来存放定时器的返回值
+            let timeout=null;
+            return function(){
+                // 2.2、每次当用户点击/输入时，将上一个定时器清除
+                clearTimeout(timeout);
+                // 2.3、创建一个新的setTimeout
+                // 这样可以保证点击按钮后的delay间隔内，如果用户又点击了按钮的话，就不会执行fn函数
+                timeout=setTimeout(() => {
+                    fn.call(this,arguments);
+                }, delay);
+            }
+        }
+        //3、 需要进行防抖的事件处理
+        function sayDebounce(){
+            // 有些需要防抖处理的事件，在这里执行
+            console.log("防抖成功！");
+        }
+    </script>
+</body>
+</html>

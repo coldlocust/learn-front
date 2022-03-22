@@ -1,7 +1,7 @@
 /*
  * @Author: mazhao
  * @Date: 2022-03-15 20:31:23
- * @LastEditTime: 2022-03-15 20:52:26
+ * @LastEditTime: 2022-03-21 13:38:44
  * @LastEditors: mazhao
  * @Description: 
  * @FilePath: \learn-front\JavaScript\codePractice\手写Js原生(语法糖，函数)\myInstanceof.js
