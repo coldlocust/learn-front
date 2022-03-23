@@ -1,0 +1,69 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: mazhao
+ * @Date: 2022-03-22 16:13:52
+ * @LastEditors: mazhao
+ * @LastEditTime: 2022-03-22 17:06:32
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      window.onload = function () {
+        const deepClone = (target, cache = new Map()) => {
+          // 判断对象是否为object类型
+          const isObject = (obj) =>
+            Object.prototype.toString.call(obj).slice(8, -1) === "object";
+          if (isObject(target)) {
+            // 解决循环引用
+            const cacheTarget = cache.get(target);
+            // 已经存在直接返回，无需再次解析
+            if (cacheTarget) {
+              return cacheTarget;
+            }
+            let cloneTarget = Array.isArray(target) ? [] : {};
+            cache.set(target, cloneTarget);
+            for (const key in target) {
+              if (target.hasOwnProperty(key)) {
+                const value = target[key];
+                cloneTarget[key] = isObject(value)
+                  ? deepClone(value, cache)
+                  : value;
+              }
+            }
+            return cloneTarget;
+          }
+          return false;
+        };
+
+        const target = {
+          field1: 1,
+          field2: undefined,
+          field3: {
+            child: "child",
+          },
+          field4: [2, 4, 8],
+          f: {
+            f: {
+              f: {
+                f: { f: { f: { f: { f: { f: { f: { f: { f: {} } } } } } } } },
+              },
+            },
+          },
+        };
+
+        target.target = target
+        const result = deepClone(target)
+        console.log(result===target)
+        console.log(result)
+      };
+    </script>
+  </body>
+</html>
