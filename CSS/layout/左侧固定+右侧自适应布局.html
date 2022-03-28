@@ -1,0 +1,43 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: mazhao
+ * @Date: 2022-03-28 20:51:36
+ * @LastEditors: mazhao
+ * @LastEditTime: 2022-03-28 21:02:41
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 利用浮动，左边元素宽度固定 ，设置向左浮动。
+        将右边元素的 margin-left 设为固定宽度 。
+        注意，因为右边元素的 width 默认为 auto ，所以会自动撑满父元素。 */
+      .wrap {
+        height: 100px;
+      }
+      .left {
+        float: left;
+        width: 100px;
+        height: 100%;
+        background-color: skyblue;
+      }
+      .right {
+        margin-left: 100px;
+        height: 100%;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+    <style></style>
+  </body>
+</html>
